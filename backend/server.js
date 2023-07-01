@@ -7,6 +7,9 @@ const io = require('socket.io')(server, {
         origin: '*'
     }
 });
+app.get("/",(req,res)=>{
+    res.json({success: true})
+})
 
 const port = process.env.PORT || 2000;
 
@@ -55,5 +58,3 @@ server.listen(port, () => {
     console.log(`Server running at ${port}`)
 });
 
-
-module.exports = app
