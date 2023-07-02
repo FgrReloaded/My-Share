@@ -6,7 +6,7 @@ const useChat = (roomId) => {
   const [loader, setLoader] = useState(false);
   const [files, setFiles] = useState([]);
   const socketRef = useRef();
-  const host = process.env.SITE
+  const host = "https://myshare-back.adaptable.app";
 
   useEffect(() => {
     socketRef.current = socketIOClient(host, {
