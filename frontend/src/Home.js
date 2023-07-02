@@ -11,7 +11,7 @@ import Some from './Some';
 function Home() {
   const socketRef = useRef();
   const navigate = useNavigate();
-  const host = process.env.SITE;
+  const host = "https://myshare-back.adaptable.app";
   const roomId = randomstring.generate(9);
   const [scanBtn, setScanBtn] = useState("Scan Code");
   const [showScan, setShowScan] = useState(false);
