@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Html5QrcodeScanner } from "html5-qrcode"
+import { Html5Qrcode, Html5QrcodeScanner } from "html5-qrcode"
 import { useNavigate } from 'react-router-dom';
 
 
