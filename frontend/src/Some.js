@@ -6,18 +6,34 @@ import { useNavigate } from 'react-router-dom';
 const Some = () => {
     const navigate = useNavigate();
     const [result, setResult] = useState(false)
+    const [cameraId, setCameraId] = useState(null);
     let scanner;
 
     useEffect(() => {
+        const getCamerasAndSelectRear = async () => {
+            const devices = await Html5Qrcode.getCameras();
+            const rearCamera = devices.find(device => device.label.toLowerCase().includes('back'));
+            if (rearCamera) {
+                setCameraId(rearCamera.id);
+            } else {
+                console.error("Rear camera not found!");
+            }
+        };
+
+        getCamerasAndSelectRear();
+    }, []);
+
+
+    useEffect(() => {
         setResult(false)
-        if (!scanner?.getState()) {
+        if (cameraId && !scanner?.getState()) {
             scanner = new Html5QrcodeScanner("reader", {
                 qrbox: {
                     width: 250,
                     height: 250
                 },
                 fps: 5,
-                cameraId: {exact: "environment"}
+                cameraId: { exact: cameraId }
 
             })
             const success = (res) => {
@@ -30,7 +46,7 @@ const Some = () => {
             scanner.render(success)
         }
 
-    }, [scanner])
+    }, [cameraId, scanner])
 
     return (
         <>
