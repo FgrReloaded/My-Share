@@ -17,6 +17,7 @@ const Some = () => {
                     height: 250
                 },
                 fps: 5,
+                cameraId: {exact: "environment"}
 
             })
             const success = (res) => {
