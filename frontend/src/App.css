@@ -263,7 +263,8 @@ input[type='file'] {
 #html5-qrcode-button-camera-start {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 30%;
+  transform: translateX(-50%);
   border: 2px double #0ca2cf;
   color: #0ca2cf;
   padding: 0.77rem;
@@ -277,6 +278,30 @@ input[type='file'] {
 #html5-qrcode-button-camera-start:hover {
   border: 2px solid #0ca2cf;
 }
+
+#html5-qrcode-select-camera{
+  border: 1px solid gray;
+  color: green;
+  padding: 0.77rem;
+  font-size: 0.78rem !important;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-family: monospace;
+  transition: 0.7s ease-in-out;
+}
+
+
+
+
+#reader__dashboard_section_csr >span{
+  font-family: monospace;
+  color: green;
+}
+
+#html5-qrcode-select-camera option:hover{
+  background-color: red;
+}
+
 
 .showScan {
   border: 2px double #a4b50b;

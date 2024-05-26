@@ -9,31 +9,32 @@ const Some = () => {
     const [cameraId, setCameraId] = useState(null);
     let scanner;
 
-    useEffect(() => {
-        const getCamerasAndSelectRear = async () => {
-            const devices = await Html5Qrcode.getCameras();
-            const rearCamera = devices.find(device => device.label.toLowerCase().includes('back'));
-            if (rearCamera) {
-                setCameraId(rearCamera.id);
-            } else {
-                console.error("Rear camera not found!");
-            }
-        };
+    // useEffect(() => {
+    //     const getCamerasAndSelectRear = async () => {
+    //         const devices = await Html5Qrcode.getCameras();
+    //         console.log(devices)
+    //         const rearCamera = devices.find(device => device.label.toLowerCase().includes('back'));
+    //         console.log(rearCamera)
+    //         if (rearCamera) {
+    //             setCameraId(rearCamera.id);
+    //         } else {
+    //             console.error("Rear camera not found!");
+    //         }
+    //     };
 
-        getCamerasAndSelectRear();
-    }, []);
+    //     getCamerasAndSelectRear();
+    // }, []);
 
 
     useEffect(() => {
         setResult(false)
-        if (cameraId && !scanner?.getState()) {
+        if (!scanner?.getState()) {
             scanner = new Html5QrcodeScanner("reader", {
                 qrbox: {
                     width: 250,
                     height: 250
                 },
                 fps: 5,
-                cameraId: { exact: cameraId }
 
             })
             const success = (res) => {
@@ -50,8 +51,8 @@ const Some = () => {
 
     return (
         <>
-             <div id="reader"></div>
-             {result ? <div className='lds-roller'>
+            <div id="reader"></div>
+            {result ? <div className='lds-roller'>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -60,7 +61,7 @@ const Some = () => {
                 <div></div>
                 <div></div>
                 <div></div>
-            </div> :"" }
+            </div> : ""}
         </>
     )
 }
