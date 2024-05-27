@@ -263,7 +263,7 @@ input[type='file'] {
 #html5-qrcode-button-camera-start {
   position: absolute;
   left: 50%;
-  top: 30%;
+  top: 25%;
   transform: translateX(-50%);
   border: 2px double #0ca2cf;
   color: #0ca2cf;
@@ -347,7 +347,7 @@ input[type='file'] {
 }
 
 .lds-roller {
-  display: inline-block;
+  display: block;
   position: relative;
   text-align: center;
   margin: auto;

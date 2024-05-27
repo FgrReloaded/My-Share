@@ -9,22 +9,6 @@ const Some = () => {
     const [cameraId, setCameraId] = useState(null);
     let scanner;
 
-    // useEffect(() => {
-    //     const getCamerasAndSelectRear = async () => {
-    //         const devices = await Html5Qrcode.getCameras();
-    //         console.log(devices)
-    //         const rearCamera = devices.find(device => device.label.toLowerCase().includes('back'));
-    //         console.log(rearCamera)
-    //         if (rearCamera) {
-    //             setCameraId(rearCamera.id);
-    //         } else {
-    //             console.error("Rear camera not found!");
-    //         }
-    //     };
-
-    //     getCamerasAndSelectRear();
-    // }, []);
-
 
     useEffect(() => {
         setResult(false)
